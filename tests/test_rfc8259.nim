@@ -1,7 +1,7 @@
 # SPDX-License-Identifier: MIT
 
 import
-  preserves
+  preserves, preserves / jsonhooks
 
 import
   std / [json, jsonutils, streams, unittest]
