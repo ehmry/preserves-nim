@@ -3,7 +3,7 @@
 version       = "0.3.0"
 author        = "Emery Hemingway"
 description   = "data model and serialization format"
-license       = "ISC"
+license       = "Unlicense"
 srcDir        = "src"
 
 
