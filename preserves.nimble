@@ -6,7 +6,7 @@ description   = "data model and serialization format"
 license       = "Unlicense"
 srcDir        = "src"
 
-bin           = @["preserves/private/preserves_schema_nim"]
+bin           = @["preserves/private/preserves_schema_nim", "preserves/private/preserves_encode"]
 
 
 # Dependencies
