@@ -15,7 +15,7 @@ suite "schema":
     else:
       var
         b = decodePreserves readFile(binPath)
-        scm = preserveTo(b, Schema)
+        scm = preserveTo(b, Schema[void])
       check scm.isSome
       if scm.isSome:
         var a = toPreserve(get scm)
