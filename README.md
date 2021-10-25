@@ -1,4 +1,19 @@
+# Preserves
+
 Nim implementation of the [Preserves data language](https://preserves.gitlab.io/preserves/preserves.html).
+
+## Library
+
+To parse or produce Preserves one should write a
+[schema](https://preserves.gitlab.io/preserves/preserves-schema.html) and
+generate a Nim module using the `preserves_schema_nim` utility. This module will
+contain Nim types corresponding to schema definitions. The `toPreserve` and
+`fromPreserve` routines will convert Nim types to and from Preserves. The
+`decodePreserves`, `parsePreserves`, `encode`, and `$` routines will convert
+`Preserve` objects to and from binary and textual encoding.
+
+To debug the `toPreserves` and `fromPreserves` routines compile with
+`-d:tracePreserves`.
 
 ## Utilities
 * preserves_schema_nim
@@ -7,7 +22,7 @@ Nim implementation of the [Preserves data language](https://preserves.gitlab.io/
 * preserves_from_json
 * preserves_to_json
 
-## Installation
+### Installation
 `preserves_encode` is a multi-call binary that implements `preserves_encode`,
 `preserves_decode`, `preserves_from_json`, and `preserves_to_json`, so the
 appropriate symlinks should be created during packaging.
