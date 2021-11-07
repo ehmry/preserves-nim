@@ -1,6 +1,6 @@
 # Package
 
-version       = "0"
+version       = "0.0.1" # versioned in git
 author        = "Emery Hemingway"
 description   = "data model and serialization format"
 license       = "Unlicense"
