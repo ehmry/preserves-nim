@@ -4,7 +4,7 @@ import
   std / [options, tables, unittest]
 
 import
-  bigints, preserves
+  preserves
 
 suite "conversions":
   test "dictionary":

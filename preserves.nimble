@@ -11,4 +11,4 @@ bin           = @["preserves/preserves_schema_nim", "preserves/private/preserves
 
 # Dependencies
 
-requires "nim >= 1.4.8", "compiler >= 1.4.8", "bigints", "npeg"
+requires "nim >= 1.4.8", "compiler >= 1.4.8", "npeg"

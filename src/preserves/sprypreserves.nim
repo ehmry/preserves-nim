@@ -50,8 +50,6 @@ proc toSpry(pr: Preserve[void]; spry: Interpreter): Node =
       result = newValue(pr.double)
     of pkSignedInteger:
       result = newValue(int pr.int)
-    of pkBigInteger:
-      discard
     of pkString:
       result = newValue(pr.string)
     of pkByteString:
@@ -147,7 +145,7 @@ proc addPreserves*(spry: Interpreter) =
   nimMeth("arity"):
     let node = evalArgInfix(spry)
     if node of RecordNode:
-      return newValue(succ SeqComposite(node).nodes.len)
+      return newValue(pred SeqComposite(node).nodes.len)
   nimMeth("label"):
     let node = evalArgInfix(spry)
     if node of RecordNode:
