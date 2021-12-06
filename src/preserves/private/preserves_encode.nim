@@ -1,12 +1,12 @@
 # SPDX-License-Identifier: MIT
 
 import
-  std / [json, options, streams]
+  std / [json, options, streams, xmlparser, xmltree]
 
 from std / os import extractFilename, paramStr
 
 import
-  ../../preserves, ../../preserves / jsonhooks, ../../preserves / parse
+  ../../preserves, ../jsonhooks, ../parse, ../xmlhooks
 
 when isMainModule:
   let command = extractFilename(paramStr 0)
@@ -23,6 +23,11 @@ when isMainModule:
         js = stdin.newFileStream.parseJson
         pr = js.toPreserve
       stdout.newFileStream.write(pr)
+    of "preserves_from_xml":
+      let
+        xn = stdin.newFileStream.parseXml
+        pr = xn.toPreserveHook(void)
+      stdout.newFileStream.write(pr)
     of "preserves_to_json":
       let
         pr = stdin.readAll.decodePreserves
@@ -31,6 +36,13 @@ when isMainModule:
         stdout.writeLine(get js)
       else:
         quit("Preserves not convertable to JSON")
+    of "preserves_to_xml":
+      let pr = stdin.readAll.decodePreserves
+      var xn: XmlNode
+      if fromPreserveHook(xn, pr):
+        stdout.writeLine(xn)
+      else:
+        quit("Preserves not convertable to XML")
     else:
       quit("no behavior defined for " & command)
   except:
