@@ -1,12 +1,13 @@
 # Package
 
-version       = "3.0.0" # versioned in git
+version       = "3.0.1" # versioned in git, this version is just to confuse nimble
 author        = "Emery Hemingway"
 description   = "data model and serialization format"
 license       = "Unlicense"
 srcDir        = "src"
 
-bin           = @["preserves/preserves_schema_nim", "preserves/private/preserves_encode"]
+# bin           = @["preserves/preserves_schema_nim", "preserves/private/preserves_encode"]
+# Nimble can't build these, because it sucks
 
 
 # Dependencies
