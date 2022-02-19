@@ -1,3 +1,0 @@
-[submodule "upstream"]
-	path = upstream
-	url = https://gitlab.com/preserves/preserves.git
