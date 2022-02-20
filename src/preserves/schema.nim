@@ -6,7 +6,7 @@ import
 type
   Ref* {.preservesRecord: "ref".} = object
   
-  ModulePath* = seq[string]
+  ModulePath* = seq[Symbol]
   Bundle*[E] {.preservesRecord: "bundle".} = ref object
   
   CompoundPatternKind* {.pure.} = enum
@@ -32,10 +32,10 @@ type
   
   Modules*[E] = Table[ModulePath, Schema[E]]
   EmbeddedTypeNameKind* {.pure.} = enum
-    `true`, `Ref`
+    `false`, `Ref`
   `EmbeddedTypeName`* {.preservesOr.} = object
     case orKind*: EmbeddedTypeNameKind
-    of EmbeddedTypeNameKind.`true`:
+    of EmbeddedTypeNameKind.`false`:
       
     of EmbeddedTypeNameKind.`Ref`:
       
@@ -43,7 +43,7 @@ type
   `AtomKind`* {.preservesOr, pure.} = enum
     `Boolean`, `Float`, `Double`, `SignedInteger`, `String`, `ByteString`,
     `Symbol`
-  Definitions*[E] = Table[string, Definition[E]]
+  Definitions*[E] = Table[Symbol, Definition[E]]
   DictionaryEntries*[E] = Table[Preserve[E], NamedSimplePattern[E]]
   NamedPatternKind* {.pure.} = enum
     `named`, `anonymous`
