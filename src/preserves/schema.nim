@@ -32,10 +32,10 @@ type
   
   Modules*[E] = Table[ModulePath, Schema[E]]
   EmbeddedTypeNameKind* {.pure.} = enum
-    `true`, `Ref`
+    `false`, `Ref`
   `EmbeddedTypeName`* {.preservesOr.} = object
     case orKind*: EmbeddedTypeNameKind
-    of EmbeddedTypeNameKind.`true`:
+    of EmbeddedTypeNameKind.`false`:
       
     of EmbeddedTypeNameKind.`Ref`:
       
