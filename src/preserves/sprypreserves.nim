@@ -7,7 +7,7 @@ import
   spryvm / spryvm
 
 import
-  preserves, preserves / parse
+  preserves
 
 type
   PreservesNode* = ref object of Value

@@ -4,7 +4,7 @@ import
   std / [strutils, unittest]
 
 import
-  preserves, preserves / parse
+  preserves
 
 const
   examples = [("""<capture <discard>>""", "´³\acapture´³\adiscard„„"),

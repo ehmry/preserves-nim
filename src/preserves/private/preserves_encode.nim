@@ -6,7 +6,7 @@ import
 from std / os import extractFilename, paramStr
 
 import
-  ../../preserves, ../jsonhooks, ../parse, ../xmlhooks
+  ../../preserves, ../jsonhooks, ../xmlhooks
 
 when isMainModule:
   let command = extractFilename(paramStr 0)
