@@ -1,6 +1,6 @@
 # Package
 
-version       = "3.3.2" # versioned in git, this version is just to confuse nimble
+version       = "99999999"
 author        = "Emery Hemingway"
 description   = "data model and serialization format"
 license       = "Unlicense"
