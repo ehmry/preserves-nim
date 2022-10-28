@@ -28,7 +28,7 @@ grammar "Preserves":
   frac <- '.' * +Digit
   exp <- 'e' * ?('-' | '+') * +Digit
   flt <- int * ((frac * exp) | frac | exp)
-  String <- '\"' * *(escaped | (utf8.any - '\"')) * '\"'
+  String <- '\"' * *(escape * escaped | (utf8.any - '\"')) * '\"'
   ByteString <- charByteString | hexByteString | b64ByteString
   charByteString <- '#' * >('\"' * >(*binchar) * '\"')
   hexByteString <- "#x\"" * ws * >(*(Xdigit[2] * ws)) * '\"'
@@ -47,7 +47,6 @@ grammar "Preserves":
   Compact <- "#=" * ws * ByteString
   unescaped <- utf8.any - escaped
   unicodeEscaped <- 'u' * Xdigit[4]
-  escaped <-
-      '\\' * ({'{', '\"', '|', '\\', 'b', 'f', 'n', 'r', 't'} | unicodeEscaped)
+  escaped <- {'{', '\"', '|', '\\', 'b', 'f', 'n', 'r', 't'} | unicodeEscaped
   escape <- '\\'
   ws <- *(' ' | '\t' | '\r' | '\n' | ',')
