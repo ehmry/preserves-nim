@@ -1,0 +1,2 @@
+include_rules
+: foreach test_*.nim |> !nim_run |>
