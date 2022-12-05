@@ -1,13 +1,12 @@
 # Package
 
-version = "20221120"
+version = "20221204"
 author        = "Emery Hemingway"
 description   = "data model and serialization format"
 license       = "Unlicense"
 srcDir        = "src"
 
-# bin           = @["preserves/preserves_schema_nim", "preserves/private/preserves_encode"]
-# Nimble can't build these, because it sucks
+bin           = @["preserves/preserves_schema_nim", "preserves/private/preserves_encode", "preserves/schemac"]
 
 
 # Dependencies
