@@ -1,7 +1,7 @@
 # SPDX-License-Identifier: MIT
 
 import
-  std / [hashes, options, os, parseopt, streams, strutils, sets, tables]
+  std / [hashes, options, os, parseopt, streams, strutils, tables]
 
 import
   ../preserves, ./schema, ./schemaparse
@@ -22,7 +22,7 @@ when isMainModule:
         var schema = parsePreservesSchema(readFile(inputPath))
         write(outStream, schema.toPreserve)
       of "bundle":
-        var bundle: Bundle[void]
+        var bundle: Bundle
         if not dirExists inputPath:
           quit "not a directory of schemas: " & inputPath
         else:

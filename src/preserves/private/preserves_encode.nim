@@ -39,7 +39,7 @@ when isMainModule:
     of "preserves_to_xml":
       let pr = stdin.readAll.decodePreserves
       var xn: XmlNode
-      if fromPreserveHook(xn, pr):
+      if fromPreserve(xn, pr):
         stdout.writeLine(xn)
       else:
         quit("Preserves not convertable to XML")
