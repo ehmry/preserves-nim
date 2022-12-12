@@ -1,3 +1,2 @@
 include_rules
-NIM_PATH += --path:$(TUP_CWD)/..
-: foreach *.nim |> !nim_run |>
+: foreach preserves_schema_nim.nim schemac.nim |> !nim |> $(BIN_DIR)/%B | $(BIN_DIR)/<%B>

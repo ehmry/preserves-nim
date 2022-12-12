@@ -1,2 +1,9 @@
 include_rules
-: preserves_encode.nim |> !nim |>
+GROUP = $(BIN_DIR)/<preserves_encode>
+: preserves_encode.nim |> !nim |> $(BIN_DIR)/preserves_encode | $(GROUP) {bin}
+!link = |> ^o symlink %o^ ln -s preserves_encode %o |> | $(GROUP)
+: {bin} |> !link |>  $(BIN_DIR)/preserves_decode
+: {bin} |> !link |>  $(BIN_DIR)/preserves_from_json
+: {bin} |> !link |>  $(BIN_DIR)/preserves_from_xml
+: {bin} |> !link |>  $(BIN_DIR)/preserves_to_json
+: {bin} |> !link |>  $(BIN_DIR)/preserves_to_xml
