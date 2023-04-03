@@ -1,0 +1,3 @@
+NIM_FLAGS += --path:$(TUP_CWD)/../nim
+NIM_FLAGS += --path:%<npeg>/src
+NIM_GROUPS += $(TUP_CWD)/../nimble/<npeg>
