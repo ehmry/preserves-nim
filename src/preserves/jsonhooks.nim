@@ -80,7 +80,7 @@ proc fromPreserveHook*[E](js: var JsonNode; prs: Preserve[E]): bool {.gcsafe.} =
   of pkDictionary:
     js = newJObject()
     for (key, val) in prs.dict.items:
-      if key.kind == pkString:
+      if key.kind != pkString:
         return false
       var jsVal: JsonNode
       if not fromPreserveHook(jsVal, val):
