@@ -1,4 +1,4 @@
 include_rules
-: foreach preserves_schema_nim.nim schemac.nim |> !nim |> $(BIN_DIR)/%B | $(BIN_DIR)/<%B>
 NIM_FLAGS += --path:$(TUP_CWD)/..
+: foreach preserves_schema_nim.nim schemac.nim schemaparse.nim |> !nim_bin |> $(BIN_DIR)/%B | $(BIN_DIR)/<%B>
 : foreach *hooks.nim |> !nim_check |>
