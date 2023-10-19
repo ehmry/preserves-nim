@@ -11,4 +11,4 @@ bin           = @["preserves/preserves_schema_nim", "preserves/private/preserves
 
 # Dependencies
 
-requires "nim >= 2.0.0", "compiler >= 1.4.8", "npeg"
+requires "nim >= 2.0.0", "compiler >= 1.4.8", "https://github.com/zevv/npeg.git >= 1.2.1"

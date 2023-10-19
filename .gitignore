@@ -1,3 +1,2 @@
-/.direnv
-*.html
-*.run
+/nim.cfg
+/tests/*.run
