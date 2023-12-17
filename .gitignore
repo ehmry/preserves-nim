@@ -1,3 +1,5 @@
 /nim.cfg
+*.dot
 *.html
 *.run
+*.svg
