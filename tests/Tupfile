@@ -1,3 +1,7 @@
 include_rules
 NIM_FLAGS_test_samples += -d:upstreamTestfile="$(TUP_CWD)/../../preserves/tests/samples.pr"
 : foreach t*.nim |> !nim_run |> | ../<test>
+
+: $(BIN_DIR)/<preserves-schemac> \
+	|> $(BIN_DIR)/preserves-schemac --no-bundle ../../preserves/doc/demo.prs | xxd > %o \
+	|> demo.xxd
