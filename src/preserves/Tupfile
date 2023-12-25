@@ -1,7 +1,6 @@
 include_rules
 NIM_FLAGS += --path:$(TUP_CWD)/..
 : foreach preserves_schema_nim.nim schemaparse.nim |> !nim_bin |> $(BIN_DIR)/%B | $(BIN_DIR)/<%B>
-: foreach *hooks.nim |> !nim_check |>
 
 DOT_FILES = ../../Document.dot ../../Schema.dot
 : schemac.nim |> !nim_bin |> $(BIN_DIR)/%B | $(DOT_FILES) $(BIN_DIR)/<%B>

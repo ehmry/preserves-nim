@@ -1,3 +1,2 @@
 include_rules
 : preserves.nim |> !nim_run |>
-: preserves.nim |> !nim_check |>
