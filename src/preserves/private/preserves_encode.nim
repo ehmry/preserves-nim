@@ -21,17 +21,17 @@ when isMainModule:
     of "preserves_from_json":
       let
         js = stdin.newFileStream.parseJson
-        pr = js.toPreserve
+        pr = js.toPreserves
       stdout.newFileStream.write(pr)
     of "preserves_from_xml":
       let
         xn = stdin.newFileStream.parseXml
-        pr = xn.toPreserveHook(void)
+        pr = xn.toPreservesHook()
       stdout.newFileStream.write(pr)
     of "preserves_to_json":
       let
         pr = stdin.readAll.decodePreserves
-        js = preserveTo(pr, JsonNode)
+        js = preservesTo(pr, JsonNode)
       if js.isSome:
         stdout.writeLine(get js)
       else:
@@ -39,7 +39,7 @@ when isMainModule:
     of "preserves_to_xml":
       let pr = stdin.readAll.decodePreserves
       var xn: XmlNode
-      if fromPreserve(xn, pr):
+      if fromPreserves(xn, pr):
         stdout.writeLine(xn)
       else:
         quit("Preserves not convertable to XML")

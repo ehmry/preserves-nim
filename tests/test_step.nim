@@ -10,7 +10,7 @@ suite "step":
   var data = parsePreserves """      <foo "bar" [ 0.0 {a: #f, "b": #t } ] >
     """
   var o = some data
-  for i in [1.toPreserve, 1.toPreserve, "b".toPreserve]:
+  for i in [1.toPreserves, 1.toPreserves, "b".toPreserves]:
     test $i:
       o = step(get o, i)
       check o.isSome
