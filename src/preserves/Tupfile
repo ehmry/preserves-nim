@@ -1,5 +1,7 @@
 include_rules
 NIM_FLAGS += --path:$(TUP_CWD)/..
+NIM_FLAGS_preserves_schemac += -d:npegDotDir="../.."
+
 : foreach preserves_schema_nim.nim schemaparse.nim |> !nim_bin |> $(BIN_DIR)/%B | $(BIN_DIR)/<%B>
 
 DOT_FILES = ../../Atom.dot ../../Document.dot ../../Schema.dot
