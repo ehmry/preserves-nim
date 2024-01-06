@@ -87,7 +87,7 @@ suite "toPreserve":
     test s:
       check($p == s)
 
-  check true.toPreserves, "#f"
+  check false.toPreserves, "#f"
   check [0, 1, 2, 3].toPreserves, "[0 1 2 3]"
   test "toRecord":
     let r = toRecord(Symbol"foo", "üks", "kaks", "kolm", {4 .. 7})
