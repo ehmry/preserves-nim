@@ -1,6 +1,6 @@
 # Package
 
-version = "20240107"
+version = "20240108"
 author        = "Emery Hemingway"
 description   = "data model and serialization format"
 license       = "Unlicense"
@@ -11,4 +11,4 @@ bin           = @["preserves/preserves_schema_nim", "preserves/private/preserves
 
 # Dependencies
 
-requires "nim >= 2.0.0", "compiler >= 1.4.8", "https://github.com/zevv/npeg.git >= 1.2.1", "https://github.com/ehmry/nim-bigints.git >= 20231006"
+requires "nim >= 2.0.0", "compiler >= 2.0.0", "https://github.com/zevv/npeg.git >= 1.2.1", "https://github.com/ehmry/nim-bigints.git >= 20231006"
