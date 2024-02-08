@@ -41,7 +41,7 @@ SimplePattern =
   ; special builtins: bool, float, double, int, string, bytes, symbol
   / <atom @atomKind AtomKind>
 
-  ; matches an embedded value in the input: #!p
+  ; matches an embedded value in the input: #:p
   / <embedded @interface SimplePattern>
 
   ; =symbol, <<lit> any>, or plain non-symbol atom
