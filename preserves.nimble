@@ -1,6 +1,6 @@
 # Package
 
-version = "20240422"
+version = "20240426"
 author        = "Emery Hemingway"
 description   = "data model and serialization format"
 license       = "Unlicense"
