@@ -1,6 +1,6 @@
-# Package
+# auto-update-version
 
-version = "20240506"
+version = "20240522"
 author        = "Emery Hemingway"
 description   = "data model and serialization format"
 license       = "Unlicense"
