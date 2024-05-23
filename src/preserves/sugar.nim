@@ -3,5 +3,6 @@
 import
   ../preserves, ./private / macros
 
-proc `%`*(n: SomeInteger): Value {.inline.} =
-  n.toPreserves
+proc `%`*(v: bool | SomeFloat | SomeInteger | string | seq[byte] | Symbol): Value {.
+    inline.} =
+  v.toPreserves

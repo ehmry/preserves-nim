@@ -1,6 +1,6 @@
 # auto-update-version
 
-version = "20240522"
+version = "20240523"
 author        = "Emery Hemingway"
 description   = "data model and serialization format"
 license       = "Unlicense"
