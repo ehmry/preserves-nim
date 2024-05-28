@@ -1,2 +1,2 @@
 include_rules
-: lock.json |> !nim_cfg |> | ./<lock>
+: sbom.json |> !sbom-to-nix |> | ./<lock>
