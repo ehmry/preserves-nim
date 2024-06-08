@@ -1,2 +1,2 @@
-NIM_FLAGS += --path:$(TUP_CWD)/../nim
-NIM_FLAGS += --path:$(TUP_CWD)/../npeg/src
+NIM_FLAGS += --path:$(TUP_CWD)/src
+NIM_LOCK_EXCLUDES += "preserves"

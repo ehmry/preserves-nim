@@ -12,9 +12,6 @@ buildNimPackage {
 
   src = if lib.inNixShell then null else lib.cleanSource ./.;
 
-  nimFlags = [ "--path:${nim.passthru.nim}/nim" ];
-  # Path to the compiler/ast library.
-
   postInstall = ''
     pushd $out/bin
     for link in preserves_decode preserves_from_json preserves_to_json;

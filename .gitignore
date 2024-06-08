@@ -1,4 +1,5 @@
 /nim.cfg
+/preserves.json
 *.dot
 *.html
 *.run

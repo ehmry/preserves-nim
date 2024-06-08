@@ -7,7 +7,7 @@
       "bom-ref": "pkg:nim/preserves",
       "name": "preserves",
       "description": "data model and serialization format",
-      "version": "20240604",
+      "version": "20240608",
       "authors": [
         {
           "name": "Emery Hemingway"
@@ -26,15 +26,15 @@
           "value": "nim"
         },
         {
-          "name": "nim:bin:preserves/private/preserves_encode",
+          "name": "nim:bin:preserves-encode",
           "value": "preserves/private/preserves_encode"
         },
         {
-          "name": "nim:bin:preserves/preserves_schema_nim",
+          "name": "nim:bin:preserves-schema-nim",
           "value": "preserves/preserves_schema_nim"
         },
         {
-          "name": "nim:bin:preserves/preserves_schemac",
+          "name": "nim:bin:preserves-schemac",
           "value": "preserves/preserves_schemac"
         },
         {

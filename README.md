@@ -11,11 +11,13 @@ To parse or produce Preserves one should write a [schema](https://preserves.dev/
 To debug the `toPreserves` and `fromPreserves` routines compile with `-d:tracePreserves`.
 
 ## Utilities
-* preserves_schema_nim
-* preserves_encode
-* preserves_decode
-* preserves_from_json
-* preserves_to_json
+* preserves-schema-nim
+* preserves-encode
+* preserves-decode
+* preserves-from-json
+* preserves-to-json
+* preserves-from-xml
+* preserves-to-xml
 
 ### Installation
-`preserves_encode` is a multi-call binary that implements `preserves_encode`, `preserves_decode`, `preserves_from_json`, and `preserves_to_json`, so the appropriate symlinks should be created during packaging.
+`preserves_encode` is a multi-call binary that implements `preserves-encode`, `preserves-decode`, `preserves-from-json`, and `preserves-to-json`, so the appropriate symlinks should be created during packaging.
