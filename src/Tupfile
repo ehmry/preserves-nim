@@ -1,2 +1,0 @@
-include_rules
-: preserves.nim |> !nim_check |>
