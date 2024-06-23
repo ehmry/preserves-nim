@@ -3,11 +3,11 @@ include_rules
 : src/preserves.nim |> !nim-doc |>
 run ./Tuprules.jq sbom.json
 
-GROUP = &(BIN_DIR)/<preserves_encode>
+GROUP = $(BIN_DIR)/<preserves_encode>
 !link = |> ^o symlink %o^ ln -s preserves_encode %o |> | $(GROUP)
 
-: {bin} |> !link |> &(BIN_DIR)/preserves-decode
-: {bin} |> !link |> &(BIN_DIR)/preserves-from-json
-: {bin} |> !link |> &(BIN_DIR)/preserves-from-xml
-: {bin} |> !link |> &(BIN_DIR)/preserves-to-json
-: {bin} |> !link |> &(BIN_DIR)/preserves-to-xml
+: {bin} |> !link |> $(BIN_DIR)/preserves-decode
+: {bin} |> !link |> $(BIN_DIR)/preserves-from-json
+: {bin} |> !link |> $(BIN_DIR)/preserves-from-xml
+: {bin} |> !link |> $(BIN_DIR)/preserves-to-json
+: {bin} |> !link |> $(BIN_DIR)/preserves-to-xml

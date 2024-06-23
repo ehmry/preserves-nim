@@ -8,5 +8,5 @@ $props |
 
 $props |
   map( select(.name | .[0:8] == "nim:bin:") ) |
-  map( ": \($binDir)/\(.value).nim |> !nim_bin |> &(BIN_DIR)/\(.name[8:]) &(BIN_DIR)/<preserves> {bin}" ) |
+  map( ": \($binDir)/\(.value).nim |> !nim_bin |> $(BIN_DIR)/\(.name[8:]) $(BIN_DIR)/<preserves> {bin}" ) |
   join("\n")
