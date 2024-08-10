@@ -1,2 +1,3 @@
-NIM_FLAGS += --path:$(TUP_CWD)/src
+&PRESERVES_SRC = ./src
+NIM_FLAGS += --path:&(PRESERVES_SRC)
 NIM_LOCK_EXCLUDES += "preserves"
