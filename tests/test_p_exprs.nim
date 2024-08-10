@@ -1,7 +1,7 @@
 # SPDX-License-Identifier: MIT
 
 import
-  std / unittest, preserves, preserves / expressions
+  pkg / balls, preserves, preserves / expressions
 
 template testExpr(name, code, cntrl: string) {.dirty.} =
   test name:

