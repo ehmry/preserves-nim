@@ -7,7 +7,7 @@
       "bom-ref": "pkg:nim/preserves",
       "name": "preserves",
       "description": "data model and serialization format",
-      "version": "20240813",
+      "version": "20240814",
       "authors": [
         {
           "name": "Emery Hemingway"
